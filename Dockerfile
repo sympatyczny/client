@@ -8,6 +8,6 @@ RUN ./mvnw clean install
 
 FROM amazoncorretto:17-alpine
 WORKDIR /opt/app
-COPY --from=builder /opt/app/target/*.jar /opt/app/*.jar
+COPY --from=builder /opt/app/target/*.jar /opt/app/rabbitmq-client.jar
 EXPOSE 9090
 CMD java -jar *.jar --env=prod
